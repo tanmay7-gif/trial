@@ -3,11 +3,13 @@
 import React, { useState } from 'react';
 import { useMedVault } from '@/lib/context';
 import { storage } from '@/lib/storage';
+import { LogoutButton } from '@/components/auth/LogoutButton';
 import {
   ShieldCheck,
   Download,
   Trash2,
   Lock,
+  LogOut,
   FileCheck,
   History,
   Key,
@@ -210,6 +212,32 @@ export const SettingsView: React.FC = () => {
                 {t.compliance.deleteAccount}
               </button>
             </div>
+          </div>
+        </div>
+
+        {/* Active Session & Logout Security */}
+        <div className="rounded-3xl border border-pink-100/90 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900 space-y-4 md:col-span-2">
+          <div className="flex items-center justify-between border-b border-pink-50 pb-3 dark:border-slate-800">
+            <div className="flex items-center gap-2.5">
+              <LogOut className="h-4 w-4 text-rose-600" />
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white">
+                Active Session & Account Exit
+              </h3>
+            </div>
+            <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-[10px] font-semibold text-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-300 border border-emerald-200">
+              Session Authenticated
+            </span>
+          </div>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">
+                Current User: <span className="font-bold text-slate-900 dark:text-white">{user.name}</span> ({user.email})
+              </p>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                Signing out purges client decryption keys, clears active session state, and locks all medical reports according to DPDP Act 2023 protocols.
+              </p>
+            </div>
+            <LogoutButton variant="button" />
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { MedVaultProvider, useMedVault } from '@/lib/context';
+import { useMedVault } from '@/lib/context';
 import { Navbar } from '@/components/Navbar';
 import { BottomNav } from '@/components/BottomNav';
 import { DashboardView } from '@/components/DashboardView';
@@ -62,9 +62,5 @@ function MedVaultMain() {
 }
 
 export default function Page() {
-  return (
-    <MedVaultProvider>
-      <MedVaultMain />
-    </MedVaultProvider>
-  );
+  return <MedVaultMain />;
 }

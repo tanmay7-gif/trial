@@ -1,7 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { useMedVault } from '@/lib/context';
+import { LogoutButton } from '@/components/auth/LogoutButton';
 import {
   ShieldCheck,
   User,
@@ -147,6 +149,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <Plus className="h-4 w-4" />
                   {t.profiles.addNew}
                 </button>
+                <div className="my-1 border-t border-pink-100 dark:border-slate-800"></div>
+                <div onClick={() => setProfileDropdownOpen(false)}>
+                  <LogoutButton variant="dropdown-item" />
+                </div>
               </div>
             )}
           </div>
@@ -242,6 +248,18 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
+
+          {/* Authentication Action */}
+          {user.isLoggedIn ? (
+            <LogoutButton variant="icon" />
+          ) : (
+            <Link
+              href="/login"
+              className="flex items-center gap-1.5 rounded-xl border border-pink-200 bg-white px-3 py-1.5 text-xs font-semibold text-rose-600 hover:bg-pink-50 dark:border-slate-700 dark:bg-slate-800 dark:text-pink-400 transition-colors shadow-xs"
+            >
+              Sign In
+            </Link>
+          )}
 
           {/* Trash Recovery Indicator */}
           {trashReports.length > 0 && (

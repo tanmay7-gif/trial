@@ -122,6 +122,11 @@ declare module 'lucide-react' {
   export const ExternalLink: React.FC<any>;
   export const LayoutDashboard: React.FC<any>;
   export const FolderArchive: React.FC<any>;
+  export const LogOut: React.FC<any>;
+  export const EyeOff: React.FC<any>;
+  export const Loader2: React.FC<any>;
+  export const Shield: React.FC<any>;
+  export const Home: React.FC<any>;
   const allIcons: Record<string, React.FC<any>>;
   export default allIcons;
 }
