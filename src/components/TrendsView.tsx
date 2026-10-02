@@ -99,9 +99,9 @@ export const TrendsView: React.FC = () => {
 
         <button
           onClick={() => window.print()}
-          className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 shadow-sm"
+          className="flex items-center gap-2 rounded-2xl border border-pink-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-pink-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 shadow-xs"
         >
-          <Download className="h-4 w-4 text-teal-600" />
+          <Download className="h-4 w-4 text-rose-600" />
           <span>Export Health Summary (PDF)</span>
         </button>
       </div>
@@ -114,8 +114,8 @@ export const TrendsView: React.FC = () => {
             onClick={() => setSelectedCode(param.code)}
             className={`shrink-0 rounded-2xl px-4 py-2 text-xs font-semibold transition-all ${
               selectedCode === param.code
-                ? 'bg-teal-600 text-white shadow-md shadow-teal-500/20'
-                : 'border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300'
+                ? 'bg-rose-600 text-white shadow-md shadow-pink-500/25'
+                : 'border border-pink-100 bg-white text-slate-700 hover:bg-pink-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300'
             }`}
           >
             {language === 'hi' ? param.nameHi.split('(')[0] : param.nameEn.split('(')[0]}
@@ -124,9 +124,9 @@ export const TrendsView: React.FC = () => {
       </div>
 
       {/* Main Chart Card */}
-      <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 space-y-6">
+      <div className="rounded-3xl border border-pink-100/90 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 space-y-6">
         {/* Metric Header & Change */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4 dark:border-slate-800">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-pink-100/80 pb-4 dark:border-slate-800">
           <div>
             <div className="flex items-center gap-2.5">
               <h2 className="text-lg font-bold text-slate-900 dark:text-white">
@@ -157,7 +157,7 @@ export const TrendsView: React.FC = () => {
             {diffFromFirst !== null && (
               <div
                 className={`mt-0.5 flex items-center justify-end gap-1 text-xs font-semibold ${
-                  diffFromFirst < 0 ? 'text-emerald-600' : 'text-amber-600'
+                  diffFromFirst < 0 ? 'text-emerald-600' : 'text-rose-600'
                 }`}
               >
                 {diffFromFirst < 0 ? (
@@ -194,21 +194,21 @@ export const TrendsView: React.FC = () => {
                 y={normalTopY}
                 width={chartWidth - padding.left - padding.right}
                 height={normalBandHeight}
-                className="fill-emerald-500/10 dark:fill-emerald-500/15"
+                className="fill-pink-500/10 dark:fill-pink-500/15"
               />
               <line
                 x1={padding.left}
                 y1={normalTopY}
                 x2={chartWidth - padding.right}
                 y2={normalTopY}
-                className="stroke-emerald-500/40"
+                className="stroke-rose-400/40"
                 strokeDasharray="4 4"
                 strokeWidth="1"
               />
               <text
                 x={chartWidth - padding.right + 6}
                 y={normalTopY + 4}
-                className="fill-emerald-600 dark:fill-emerald-400 text-[9px] font-bold"
+                className="fill-rose-600 dark:fill-rose-400 text-[9px] font-bold"
               >
                 Max: {activeParam.maxNormal}
               </text>
@@ -218,14 +218,14 @@ export const TrendsView: React.FC = () => {
                 y1={normalBottomY}
                 x2={chartWidth - padding.right}
                 y2={normalBottomY}
-                className="stroke-emerald-500/40"
+                className="stroke-rose-400/40"
                 strokeDasharray="4 4"
                 strokeWidth="1"
               />
               <text
                 x={chartWidth - padding.right + 6}
                 y={normalBottomY + 4}
-                className="fill-emerald-600 dark:fill-emerald-400 text-[9px] font-bold"
+                className="fill-rose-600 dark:fill-rose-400 text-[9px] font-bold"
               >
                 Min: {activeParam.minNormal}
               </text>
@@ -235,7 +235,7 @@ export const TrendsView: React.FC = () => {
                 <path
                   d={linePathD}
                   fill="none"
-                  className="stroke-teal-600 dark:stroke-teal-400"
+                  className="stroke-rose-600 dark:stroke-rose-400"
                   strokeWidth="3"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -244,14 +244,13 @@ export const TrendsView: React.FC = () => {
 
               {/* Data Points */}
               {points.map((pt, idx) => {
-                const colors = getStatusColor(pt.item.status);
                 return (
                   <g key={idx}>
                     <circle
                       cx={pt.x}
                       cy={pt.y}
                       r="6"
-                      className="fill-white dark:fill-slate-900 stroke-teal-600 dark:stroke-teal-400 stroke-[3]"
+                      className="fill-white dark:fill-slate-900 stroke-rose-600 dark:stroke-rose-400 stroke-[3]"
                     />
                     {/* Value Badge on top */}
                     <text
@@ -280,14 +279,14 @@ export const TrendsView: React.FC = () => {
             </svg>
 
             {/* Legend */}
-            <div className="mt-4 flex flex-wrap items-center justify-between text-xs text-slate-500 border-t border-slate-100 pt-3 dark:border-slate-800">
+            <div className="mt-4 flex flex-wrap items-center justify-between text-xs text-slate-500 border-t border-pink-100/80 pt-3 dark:border-slate-800">
               <div className="flex items-center gap-4">
                 <span className="flex items-center gap-1.5">
-                  <span className="h-3 w-6 rounded bg-emerald-500/20 border border-emerald-500/40 inline-block" />
+                  <span className="h-3 w-6 rounded bg-pink-500/20 border border-rose-300 inline-block" />
                   <span>Normal Reference Zone ({activeParam.minNormal} - {activeParam.maxNormal} {activeParam.unit})</span>
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-teal-600 inline-block" />
+                  <span className="h-2 w-2 rounded-full bg-rose-600 inline-block" />
                   <span>Recorded Values</span>
                 </span>
               </div>
@@ -300,14 +299,14 @@ export const TrendsView: React.FC = () => {
 
       {/* Date Comparison Panel: Baseline vs Latest */}
       {firstVal && latestVal && firstVal !== latestVal && (
-        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+        <div className="rounded-3xl border border-pink-100/90 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
           <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-teal-600" />
+            <Sparkles className="h-4 w-4 text-rose-600" />
             Biomarker Comparison: Baseline vs Latest
           </h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-slate-100 bg-slate-50/80 p-4 dark:border-slate-800 dark:bg-slate-850">
+            <div className="rounded-2xl border border-pink-100 bg-[#FDF8F9] p-4 dark:border-slate-800 dark:bg-slate-850">
               <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
                 Baseline (Initial Record)
               </div>
@@ -315,7 +314,7 @@ export const TrendsView: React.FC = () => {
                 {firstVal.value} {firstVal.unit}
               </div>
               <div className="mt-1 text-xs text-slate-500 flex items-center gap-1">
-                <Calendar className="h-3.5 w-3.5" />
+                <Calendar className="h-3.5 w-3.5 text-rose-500" />
                 {new Date(firstVal.measuredAt).toLocaleDateString('en-IN', {
                   day: 'numeric',
                   month: 'short',
@@ -324,15 +323,15 @@ export const TrendsView: React.FC = () => {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-teal-200 bg-teal-50/50 p-4 dark:border-teal-900/50 dark:bg-teal-950/30">
-              <div className="text-[11px] font-semibold text-teal-700 dark:text-teal-300 uppercase tracking-wider">
+            <div className="rounded-2xl border border-pink-200 bg-pink-50/60 p-4 dark:border-pink-900/50 dark:bg-pink-950/30">
+              <div className="text-[11px] font-semibold text-rose-700 dark:text-pink-300 uppercase tracking-wider">
                 Latest (Current Report)
               </div>
               <div className="mt-2 text-2xl font-black text-slate-900 dark:text-white">
                 {latestVal.value} {latestVal.unit}
               </div>
               <div className="mt-1 text-xs text-slate-500 flex items-center gap-1">
-                <Calendar className="h-3.5 w-3.5" />
+                <Calendar className="h-3.5 w-3.5 text-rose-500" />
                 {new Date(latestVal.measuredAt).toLocaleDateString('en-IN', {
                   day: 'numeric',
                   month: 'short',

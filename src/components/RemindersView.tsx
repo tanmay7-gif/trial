@@ -45,7 +45,7 @@ export const RemindersView: React.FC = () => {
 
         <button
           onClick={() => alert('Custom reminder creator dialog')}
-          className="flex items-center gap-1.5 rounded-2xl bg-teal-600 px-4 py-2.5 text-xs font-semibold text-white shadow-md shadow-teal-500/20 hover:bg-teal-700"
+          className="flex items-center gap-1.5 rounded-2xl bg-rose-600 px-4 py-2.5 text-xs font-semibold text-white shadow-md shadow-pink-500/20 hover:bg-rose-700"
         >
           <Plus className="h-4 w-4" />
           <span>Add Custom Check-in</span>
@@ -55,8 +55,8 @@ export const RemindersView: React.FC = () => {
       {/* Reminders List */}
       <div className="space-y-4">
         {reminders.length === 0 ? (
-          <div className="rounded-3xl border border-slate-200 bg-white p-12 text-center dark:border-slate-800 dark:bg-slate-900">
-            <Bell className="mx-auto h-12 w-12 text-teal-600 mb-2" />
+          <div className="rounded-3xl border border-pink-100 bg-white p-12 text-center dark:border-slate-800 dark:bg-slate-900">
+            <Bell className="mx-auto h-12 w-12 text-rose-500 mb-2" />
             <h3 className="text-sm font-bold text-slate-900 dark:text-white">
               No Pending Reminders
             </h3>
@@ -68,15 +68,15 @@ export const RemindersView: React.FC = () => {
           reminders.map(rem => (
             <div
               key={rem.id}
-              className="rounded-3xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 flex flex-col md:flex-row md:items-center justify-between gap-4"
+              className="rounded-3xl border border-pink-100/90 bg-white p-5 sm:p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-pink-200 transition-all"
             >
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2">
-                  <span className="rounded-full bg-teal-50 px-2.5 py-0.5 text-[10px] font-bold text-teal-800 dark:bg-teal-950 dark:text-teal-300 border border-teal-200 dark:border-teal-800 uppercase">
+                  <span className="rounded-full bg-pink-50 px-2.5 py-0.5 text-[10px] font-bold text-rose-700 dark:bg-pink-950 dark:text-pink-300 border border-pink-200/80 dark:border-pink-800 uppercase">
                     Every {rem.frequencyMonths} Month(s)
                   </span>
                   <span className="text-xs text-slate-400">
-                    Status: <strong className="capitalize">{rem.status}</strong>
+                    Status: <strong className="capitalize text-slate-700 dark:text-slate-300">{rem.status}</strong>
                   </span>
                 </div>
 
@@ -85,7 +85,7 @@ export const RemindersView: React.FC = () => {
                 </h3>
 
                 <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 dark:text-slate-400 pt-1">
-                  <span className="flex items-center gap-1 font-semibold text-teal-700 dark:text-teal-300">
+                  <span className="flex items-center gap-1 font-semibold text-rose-700 dark:text-pink-300">
                     <Calendar className="h-3.5 w-3.5" />
                     Next Due: {rem.nextDueDate}
                   </span>
@@ -94,8 +94,8 @@ export const RemindersView: React.FC = () => {
                   )}
                   <div className="flex items-center gap-2">
                     <span className="text-[11px] text-slate-400">Alerts via:</span>
-                    {rem.notifyEmail && <Mail className="h-3.5 w-3.5 text-teal-600" title="Email alerts" />}
-                    {rem.notifySmsWhatsapp && <MessageSquare className="h-3.5 w-3.5 text-emerald-600" title="WhatsApp/SMS alerts" />}
+                    {rem.notifyEmail && <Mail className="h-3.5 w-3.5 text-rose-600" title="Email alerts" />}
+                    {rem.notifySmsWhatsapp && <MessageSquare className="h-3.5 w-3.5 text-rose-600" title="WhatsApp/SMS alerts" />}
                   </div>
                 </div>
               </div>
@@ -104,20 +104,20 @@ export const RemindersView: React.FC = () => {
               <div className="flex items-center gap-2 shrink-0">
                 <button
                   onClick={() => handleUpdateStatus(rem.id, 'done')}
-                  className="flex items-center gap-1.5 rounded-2xl bg-teal-600 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-teal-700 active:scale-95"
+                  className="flex items-center gap-1.5 rounded-2xl bg-rose-600 px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-rose-700 active:scale-95 transition-all"
                 >
                   <CheckCircle2 className="h-3.5 w-3.5" />
                   Mark as Done
                 </button>
                 <button
                   onClick={() => handleUpdateStatus(rem.id, 'snoozed')}
-                  className="rounded-2xl border border-slate-200 px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+                  className="rounded-2xl border border-pink-200 bg-white px-3 py-2 text-xs font-medium text-slate-700 hover:bg-pink-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
                 >
                   Snooze 1 Mo
                 </button>
                 <button
                   onClick={() => handleUpdateStatus(rem.id, 'skipped')}
-                  className="rounded-2xl border border-slate-200 px-3 py-2 text-xs font-medium text-slate-400 hover:text-slate-600 dark:border-slate-700 dark:hover:bg-slate-800"
+                  className="rounded-2xl border border-pink-100 bg-white px-3 py-2 text-xs font-medium text-slate-400 hover:text-slate-600 dark:border-slate-700 dark:bg-slate-800"
                 >
                   Skip
                 </button>

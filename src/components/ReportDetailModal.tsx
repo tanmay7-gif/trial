@@ -80,12 +80,12 @@ export const ReportDetailModal: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 backdrop-blur-sm p-3 sm:p-4 overflow-y-auto">
-      <div className="w-full max-w-3xl rounded-3xl border border-slate-200 bg-white p-5 sm:p-6 shadow-2xl dark:border-slate-800 dark:bg-slate-900 my-8 animate-in fade-in zoom-in-95">
+      <div className="w-full max-w-3xl rounded-3xl border border-pink-100 bg-white p-5 sm:p-6 shadow-2xl dark:border-slate-800 dark:bg-slate-900 my-8 animate-in fade-in zoom-in-95">
         {/* Header */}
-        <div className="flex items-start justify-between border-b border-slate-100 pb-4 dark:border-slate-800">
+        <div className="flex items-start justify-between border-b border-pink-50 pb-4 dark:border-slate-800">
           <div>
             <div className="flex items-center gap-2">
-              <span className="rounded-full bg-teal-100 px-2.5 py-0.5 text-xs font-bold text-teal-800 dark:bg-teal-950 dark:text-teal-300 capitalize">
+              <span className="rounded-full bg-pink-50 px-2.5 py-0.5 text-xs font-bold text-rose-700 dark:bg-pink-950 dark:text-pink-300 border border-pink-200 capitalize">
                 {report.reportType.replace(/_/g, ' ')}
               </span>
               <span className="text-xs text-slate-400">
@@ -98,7 +98,7 @@ export const ReportDetailModal: React.FC = () => {
           </div>
           <button
             onClick={() => setSelectedReportForDetail(null)}
-            className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-slate-800"
+            className="rounded-lg p-1.5 text-slate-400 hover:bg-pink-50 hover:text-rose-700 dark:hover:bg-slate-800"
           >
             <X className="h-5 w-5" />
           </button>
@@ -108,9 +108,9 @@ export const ReportDetailModal: React.FC = () => {
         <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Metadata Sidebar */}
           <div className="space-y-4 text-xs">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50/50 p-4 dark:border-slate-800 dark:bg-slate-800/40 space-y-3">
+            <div className="rounded-2xl border border-pink-100 bg-[#FDF8F9] p-4 dark:border-slate-800 dark:bg-slate-800/40 space-y-3">
               <div className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
-                <Calendar className="h-4 w-4 text-teal-600 shrink-0" />
+                <Calendar className="h-4 w-4 text-rose-500 shrink-0" />
                 <div>
                   <div className="font-semibold text-slate-900 dark:text-white">
                     {new Date(report.reportDate).toLocaleDateString('en-IN', {
@@ -125,7 +125,7 @@ export const ReportDetailModal: React.FC = () => {
 
               {report.doctorName && (
                 <div className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
-                  <User className="h-4 w-4 text-teal-600 shrink-0" />
+                  <User className="h-4 w-4 text-rose-500 shrink-0" />
                   <div>
                     <div className="font-semibold text-slate-900 dark:text-white">
                       {report.doctorName}
@@ -137,7 +137,7 @@ export const ReportDetailModal: React.FC = () => {
 
               {report.labName && (
                 <div className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
-                  <Building2 className="h-4 w-4 text-teal-600 shrink-0" />
+                  <Building2 className="h-4 w-4 text-rose-500 shrink-0" />
                   <div>
                     <div className="font-semibold text-slate-900 dark:text-white">
                       {report.labName}
@@ -148,7 +148,7 @@ export const ReportDetailModal: React.FC = () => {
               )}
 
               {report.tags && report.tags.length > 0 && (
-                <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60">
+                <div className="pt-2 border-t border-pink-100/60 dark:border-slate-700/60">
                   <div className="text-[10px] font-semibold text-slate-400 mb-1.5">
                     {t.vault.tags}
                   </div>
@@ -156,7 +156,7 @@ export const ReportDetailModal: React.FC = () => {
                     {report.tags.map((tag, i) => (
                       <span
                         key={i}
-                        className="rounded-md bg-slate-200/60 px-1.5 py-0.5 text-[10px] font-medium text-slate-700 dark:bg-slate-700 dark:text-slate-300"
+                        className="rounded-md bg-pink-100/70 px-1.5 py-0.5 text-[10px] font-medium text-rose-800 dark:bg-slate-700 dark:text-slate-300"
                       >
                         #{tag}
                       </span>
@@ -168,8 +168,8 @@ export const ReportDetailModal: React.FC = () => {
 
             {/* Doctor Remarks */}
             {report.notes && (
-              <div className="rounded-2xl border border-teal-100 bg-teal-50/40 p-4 dark:border-teal-900/50 dark:bg-teal-950/20">
-                <div className="text-[10px] font-bold text-teal-800 dark:text-teal-300 uppercase tracking-wider mb-1">
+              <div className="rounded-2xl border border-pink-200 bg-pink-50/50 p-4 dark:border-pink-900/50 dark:bg-pink-950/20">
+                <div className="text-[10px] font-bold text-rose-800 dark:text-pink-300 uppercase tracking-wider mb-1">
                   {t.vault.notes}
                 </div>
                 <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
@@ -186,17 +186,17 @@ export const ReportDetailModal: React.FC = () => {
               {report.files.map(f => (
                 <div
                   key={f.id}
-                  className="flex items-center justify-between rounded-xl border border-slate-200 p-2.5 dark:border-slate-800 bg-white dark:bg-slate-900"
+                  className="flex items-center justify-between rounded-xl border border-pink-100 p-2.5 dark:border-slate-800 bg-white dark:bg-slate-900"
                 >
                   <div className="flex items-center gap-2 truncate">
-                    <FileText className="h-4 w-4 text-teal-600 shrink-0" />
+                    <FileText className="h-4 w-4 text-rose-500 shrink-0" />
                     <span className="truncate font-medium text-slate-800 dark:text-slate-200">
                       {f.fileName}
                     </span>
                   </div>
                   <button
                     onClick={() => alert(`Simulating secure decrypted download for: ${f.fileName}`)}
-                    className="p-1 text-slate-400 hover:text-teal-600 dark:hover:text-teal-400"
+                    className="p-1 text-slate-400 hover:text-rose-600 dark:hover:text-pink-400"
                     title="Download"
                   >
                     <Download className="h-3.5 w-3.5" />
@@ -209,10 +209,10 @@ export const ReportDetailModal: React.FC = () => {
           {/* Main Panel: Extracted Biomarkers & Document Preview */}
           <div className="md:col-span-2 space-y-4">
             {/* Extracted Biomarkers Section */}
-            <div className="rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden">
-              <div className="bg-slate-50 dark:bg-slate-800/80 px-4 py-2.5 text-xs font-bold text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
+            <div className="rounded-2xl border border-pink-100 dark:border-slate-800 overflow-hidden">
+              <div className="bg-pink-50/60 dark:bg-slate-800/80 px-4 py-2.5 text-xs font-bold text-slate-700 dark:text-slate-300 border-b border-pink-100 dark:border-slate-800 flex justify-between items-center">
                 <span>Verified Biomarkers ({measurements.length})</span>
-                <span className="flex items-center gap-1 text-[11px] text-teal-600 dark:text-teal-400">
+                <span className="flex items-center gap-1 text-[11px] text-rose-600 dark:text-pink-400 font-semibold">
                   <ShieldCheck className="h-3.5 w-3.5" />
                   User Verified
                 </span>
@@ -223,14 +223,14 @@ export const ReportDetailModal: React.FC = () => {
                   No biomarkers were extracted from this report.
                 </div>
               ) : (
-                <div className="divide-y divide-slate-100 dark:divide-slate-800">
+                <div className="divide-y divide-pink-50 dark:divide-slate-800">
                   {measurements.map(m => {
                     const paramDef = CLINICAL_PARAMETERS.find(p => p.code === m.parameterCode);
                     const colors = getStatusColor(m.status);
                     return (
                       <div
                         key={m.id}
-                        className="p-3 flex items-center justify-between hover:bg-slate-50/50 dark:hover:bg-slate-800/40"
+                        className="p-3 flex items-center justify-between hover:bg-pink-50/30 dark:hover:bg-slate-800/40"
                       >
                         <div>
                           <div className="text-xs font-semibold text-slate-900 dark:text-white">
@@ -258,17 +258,17 @@ export const ReportDetailModal: React.FC = () => {
             </div>
 
             {/* Document In-App Mock Preview */}
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950 p-4">
+            <div className="rounded-2xl border border-pink-100 bg-[#FDF8F9] dark:border-slate-800 dark:bg-slate-950 p-4">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">
                   Document Preview (Encrypted AES-256 Vault)
                 </span>
-                <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono">
+                <span className="text-[10px] text-rose-600 dark:text-pink-400 font-mono">
                   SHA256: 7f8b9a2c...
                 </span>
               </div>
-              <div className="h-44 rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 flex flex-col items-center justify-center text-center p-4 shadow-inner">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-50 text-teal-600 dark:bg-teal-950 dark:text-teal-400 mb-2">
+              <div className="h-44 rounded-xl border border-pink-100 bg-white dark:border-slate-800 dark:bg-slate-900 flex flex-col items-center justify-center text-center p-4 shadow-inner">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-pink-50 text-rose-600 dark:bg-pink-950 dark:text-pink-400 mb-2 border border-pink-100">
                   <Eye className="h-6 w-6" />
                 </div>
                 <div className="text-xs font-bold text-slate-800 dark:text-slate-200">
@@ -282,9 +282,9 @@ export const ReportDetailModal: React.FC = () => {
 
             {/* Doctor Share Drawer */}
             {shareDrawerOpen && (
-              <div className="rounded-2xl border border-teal-200 bg-teal-50/50 p-4 dark:border-teal-900/60 dark:bg-teal-950/40 space-y-3 animate-in fade-in">
+              <div className="rounded-2xl border border-pink-200 bg-pink-50/70 p-4 dark:border-pink-900/60 dark:bg-pink-950/40 space-y-3 animate-in fade-in">
                 <div className="flex items-center justify-between">
-                  <h4 className="text-xs font-bold text-teal-900 dark:text-teal-200 flex items-center gap-1.5">
+                  <h4 className="text-xs font-bold text-rose-900 dark:text-pink-200 flex items-center gap-1.5">
                     <Share2 className="h-4 w-4" />
                     {t.shareModal.title}
                   </h4>
@@ -306,7 +306,7 @@ export const ReportDetailModal: React.FC = () => {
                         <select
                           value={expiryHours}
                           onChange={e => setExpiryHours(Number(e.target.value))}
-                          className="w-full rounded-xl border border-slate-300 bg-white px-2.5 py-1.5 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                          className="w-full rounded-xl border border-pink-200 bg-white px-2.5 py-1.5 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                         >
                           <option value={1}>{t.shareModal.expiry1h}</option>
                           <option value={24}>{t.shareModal.expiry24h}</option>
@@ -324,14 +324,14 @@ export const ReportDetailModal: React.FC = () => {
                           value={passcode}
                           onChange={e => setPasscode(e.target.value)}
                           placeholder="e.g. 4821"
-                          className="w-full rounded-xl border border-slate-300 bg-white px-2.5 py-1.5 text-xs font-mono dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                          className="w-full rounded-xl border border-pink-200 bg-white px-2.5 py-1.5 text-xs font-mono dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                         />
                       </div>
                     </div>
 
                     <button
                       onClick={handleGenerateShare}
-                      className="w-full rounded-xl bg-teal-600 py-2 text-xs font-semibold text-white shadow-sm hover:bg-teal-700"
+                      className="w-full rounded-xl bg-rose-600 py-2 text-xs font-semibold text-white shadow-xs hover:bg-rose-700"
                     >
                       {t.shareModal.generateLink}
                     </button>
@@ -343,18 +343,18 @@ export const ReportDetailModal: React.FC = () => {
                         type="text"
                         readOnly
                         value={createdShareUrl}
-                        className="w-full rounded-xl border border-slate-300 bg-white px-3 py-1.5 text-xs font-mono dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                        className="w-full rounded-xl border border-pink-200 bg-white px-3 py-1.5 text-xs font-mono dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                       />
                       <button
                         onClick={handleCopy}
-                        className="shrink-0 flex items-center gap-1 rounded-xl bg-teal-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-teal-700"
+                        className="shrink-0 flex items-center gap-1 rounded-xl bg-rose-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-rose-700"
                       >
                         {copied ? <Check className="h-3.5 w-3.5" /> : t.shareModal.copyLink}
                       </button>
                     </div>
 
                     <div className="flex items-center justify-between text-[11px] text-slate-500">
-                      <span>Doctor Passcode: <strong className="font-mono text-teal-700 dark:text-teal-300">{passcode || 'None'}</strong></span>
+                      <span>Doctor Passcode: <strong className="font-mono text-rose-700 dark:text-pink-300">{passcode || 'None'}</strong></span>
                       <button
                         onClick={handleRevokeShare}
                         className="text-rose-600 hover:underline font-semibold"
@@ -370,7 +370,7 @@ export const ReportDetailModal: React.FC = () => {
         </div>
 
         {/* Footer Actions */}
-        <div className="mt-6 border-t border-slate-100 dark:border-slate-800 pt-4 flex items-center justify-between">
+        <div className="mt-6 border-t border-pink-50 dark:border-slate-800 pt-4 flex items-center justify-between">
           <button
             onClick={handleSoftDelete}
             className="flex items-center gap-1.5 text-xs font-semibold text-rose-600 hover:text-rose-700 dark:text-rose-400"
@@ -382,9 +382,9 @@ export const ReportDetailModal: React.FC = () => {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setShareDrawerOpen(!shareDrawerOpen)}
-              className="flex items-center gap-1.5 rounded-xl border border-slate-200 px-3.5 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
+              className="flex items-center gap-1.5 rounded-xl border border-pink-200 bg-white px-3.5 py-2 text-xs font-semibold text-slate-700 hover:bg-pink-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
             >
-              <Share2 className="h-4 w-4 text-teal-600" />
+              <Share2 className="h-4 w-4 text-rose-600" />
               {t.vault.shareDoctor}
             </button>
             <button

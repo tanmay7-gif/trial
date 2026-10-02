@@ -24,7 +24,7 @@ export const BottomNav: React.FC = () => {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-40 border-t border-slate-200 bg-white/95 backdrop-blur-lg px-2 py-2 dark:border-slate-800 dark:bg-slate-900/95 transition-colors">
+    <nav className="fixed bottom-0 left-0 right-0 z-40 border-t border-pink-100 bg-white/95 backdrop-blur-lg px-2 py-2 dark:border-slate-800 dark:bg-slate-900/95 transition-colors shadow-[0_-2px_10px_rgba(244,114,182,0.06)]">
       <div className="mx-auto flex max-w-md items-center justify-around">
         {tabs.map(tab => {
           const Icon = tab.icon;
@@ -35,8 +35,8 @@ export const BottomNav: React.FC = () => {
               onClick={() => setActiveTab(tab.id)}
               className={`flex flex-col items-center gap-1 rounded-2xl px-3 py-1.5 transition-all ${
                 isActive
-                  ? 'text-teal-600 dark:text-teal-400 font-bold scale-105'
-                  : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-200'
+                  ? 'text-rose-600 dark:text-rose-400 font-bold scale-105'
+                  : 'text-slate-400 hover:text-rose-500 dark:hover:text-slate-200'
               }`}
             >
               <Icon className="h-5 w-5" />

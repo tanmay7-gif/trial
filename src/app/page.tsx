@@ -24,7 +24,7 @@ function MedVaultMain() {
   const [authModalOpen, setAuthModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 pb-24 transition-colors">
+    <div className="min-h-screen bg-[#FDF8F9] text-slate-900 dark:bg-[#0F1117] dark:text-slate-100 pb-24 transition-colors">
       {/* Top Navigation */}
       <Navbar
         onOpenProfileModal={() => setProfileModalOpen(true)}

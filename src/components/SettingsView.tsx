@@ -78,30 +78,30 @@ export const SettingsView: React.FC = () => {
         </p>
       </div>
 
-      {/* Compliance Overview Banner */}
-      <div className="rounded-3xl border border-teal-200 bg-teal-50/70 p-6 dark:border-teal-900/60 dark:bg-teal-950/30">
+      {/* Compliance Overview Banner - Soft Pink & Crisp White */}
+      <div className="rounded-3xl border border-pink-200/90 bg-gradient-to-r from-pink-50/70 via-rose-50/40 to-white p-6 dark:border-pink-900/60 dark:bg-pink-950/30 shadow-xs">
         <div className="flex items-start gap-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-600 text-white shadow-md shadow-teal-600/20 shrink-0">
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-600 text-white shadow-md shadow-pink-500/25 shrink-0">
             <ShieldCheck className="h-6 w-6" />
           </div>
           <div className="space-y-1">
-            <h3 className="text-sm font-bold text-teal-950 dark:text-teal-200">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-pink-200">
               {t.compliance.consentTitle}
             </h3>
             <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
               {t.compliance.consentBody}
             </p>
-            <div className="mt-3 flex flex-wrap gap-2 text-[11px] font-semibold text-teal-800 dark:text-teal-300">
-              <span className="rounded-lg bg-teal-100/80 px-2.5 py-1 dark:bg-teal-900/60">
+            <div className="mt-3 flex flex-wrap gap-2 text-[11px] font-semibold text-rose-800 dark:text-pink-300">
+              <span className="rounded-lg bg-pink-100/80 px-2.5 py-1 dark:bg-pink-900/60 border border-pink-200">
                 ✓ Purpose Limitation Enforced
               </span>
-              <span className="rounded-lg bg-teal-100/80 px-2.5 py-1 dark:bg-teal-900/60">
+              <span className="rounded-lg bg-pink-100/80 px-2.5 py-1 dark:bg-pink-900/60 border border-pink-200">
                 ✓ AES-256 File Encryption at Rest
               </span>
-              <span className="rounded-lg bg-teal-100/80 px-2.5 py-1 dark:bg-teal-900/60">
+              <span className="rounded-lg bg-pink-100/80 px-2.5 py-1 dark:bg-pink-900/60 border border-pink-200">
                 ✓ Zero Third-Party Advertising
               </span>
-              <span className="rounded-lg bg-teal-100/80 px-2.5 py-1 dark:bg-teal-900/60">
+              <span className="rounded-lg bg-pink-100/80 px-2.5 py-1 dark:bg-pink-900/60 border border-pink-200">
                 ✓ TLS 1.3 in Transit
               </span>
             </div>
@@ -112,9 +112,9 @@ export const SettingsView: React.FC = () => {
       {/* Two Column Layout: App-Lock & Data Rights */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Security & App-Lock Configuration */}
-        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 space-y-4">
-          <div className="flex items-center gap-2.5 border-b border-slate-100 pb-3 dark:border-slate-800">
-            <Lock className="h-4 w-4 text-teal-600" />
+        <div className="rounded-3xl border border-pink-100/90 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900 space-y-4">
+          <div className="flex items-center gap-2.5 border-b border-pink-50 pb-3 dark:border-slate-800">
+            <Lock className="h-4 w-4 text-rose-600" />
             <h3 className="text-sm font-bold text-slate-900 dark:text-white">
               Device Security & PIN Lock
             </h3>
@@ -136,12 +136,12 @@ export const SettingsView: React.FC = () => {
                   value={pinInput}
                   onChange={e => setPinInput(e.target.value.replace(/\D/g, ''))}
                   placeholder="Enter 4 digits"
-                  className="w-36 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-center text-sm font-bold tracking-widest text-slate-900 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                  className="w-36 rounded-xl border border-pink-200 bg-pink-50/30 px-3 py-2 text-center text-sm font-bold tracking-widest text-slate-900 dark:border-slate-700 dark:bg-slate-800 dark:text-white focus:border-rose-500 focus:outline-none"
                 />
                 <button
                   type="submit"
                   disabled={pinInput.length !== 4}
-                  className="rounded-xl bg-teal-600 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-teal-700 disabled:opacity-50"
+                  className="rounded-xl bg-rose-600 px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-rose-700 disabled:opacity-50"
                 >
                   Save PIN
                 </button>
@@ -170,9 +170,9 @@ export const SettingsView: React.FC = () => {
         </div>
 
         {/* Data Portability & Right to Erasure */}
-        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 space-y-4">
-          <div className="flex items-center gap-2.5 border-b border-slate-100 pb-3 dark:border-slate-800">
-            <Database className="h-4 w-4 text-teal-600" />
+        <div className="rounded-3xl border border-pink-100/90 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900 space-y-4">
+          <div className="flex items-center gap-2.5 border-b border-pink-50 pb-3 dark:border-slate-800">
+            <Database className="h-4 w-4 text-rose-600" />
             <h3 className="text-sm font-bold text-slate-900 dark:text-white">
               Data Rights (DPDP Section 11 & 12)
             </h3>
@@ -188,14 +188,14 @@ export const SettingsView: React.FC = () => {
               </p>
               <button
                 onClick={handleExportAllData}
-                className="mt-2 flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+                className="mt-2 flex items-center gap-1.5 rounded-xl border border-pink-200 bg-white px-3.5 py-2 text-xs font-semibold text-slate-700 hover:bg-pink-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
               >
-                <Download className="h-3.5 w-3.5 text-teal-600" />
+                <Download className="h-3.5 w-3.5 text-rose-600" />
                 {t.compliance.exportData}
               </button>
             </div>
 
-            <div className="pt-3 border-t border-slate-100 dark:border-slate-800">
+            <div className="pt-3 border-t border-pink-50 dark:border-slate-800">
               <h4 className="text-xs font-bold text-rose-700 dark:text-rose-400">
                 Right to Erasure ("Forget Me")
               </h4>
@@ -215,10 +215,10 @@ export const SettingsView: React.FC = () => {
       </div>
 
       {/* Audit Log Trail */}
-      <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 space-y-4">
-        <div className="flex items-center justify-between border-b border-slate-100 pb-3 dark:border-slate-800">
+      <div className="rounded-3xl border border-pink-100/90 bg-white p-6 shadow-xs dark:border-slate-800 dark:bg-slate-900 space-y-4">
+        <div className="flex items-center justify-between border-b border-pink-50 pb-3 dark:border-slate-800">
           <div className="flex items-center gap-2">
-            <History className="h-4 w-4 text-teal-600" />
+            <History className="h-4 w-4 text-rose-600" />
             <h3 className="text-sm font-bold text-slate-900 dark:text-white">
               Immutable Access & Audit Logs
             </h3>
@@ -228,7 +228,7 @@ export const SettingsView: React.FC = () => {
           </span>
         </div>
 
-        <div className="divide-y divide-slate-100 dark:divide-slate-800 max-h-60 overflow-y-auto">
+        <div className="divide-y divide-pink-50 dark:divide-slate-800 max-h-60 overflow-y-auto">
           {auditLogs.map(log => (
             <div key={log.id} className="py-2.5 flex items-center justify-between text-xs">
               <div>
@@ -246,7 +246,7 @@ export const SettingsView: React.FC = () => {
       </div>
 
       {/* Mandatory Medical Disclaimer Notice */}
-      <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-xs text-slate-500 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-400 text-center leading-relaxed">
+      <div className="rounded-2xl border border-pink-100 bg-[#FDF8F9] p-4 text-xs text-slate-500 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-400 text-center leading-relaxed">
         {t.compliance.medicalDisclaimer}
       </div>
     </div>

@@ -65,40 +65,40 @@ export const DashboardView: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      {/* Welcome Banner */}
-      <div className="rounded-3xl bg-gradient-to-r from-teal-800 via-emerald-800 to-slate-900 p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
+      {/* Welcome Hero Banner - Soft Pink & Crisp White */}
+      <div className="rounded-3xl border border-pink-100/90 bg-gradient-to-br from-white via-pink-50/40 to-rose-50/50 p-6 sm:p-8 text-slate-900 shadow-sm relative overflow-hidden dark:border-slate-800 dark:bg-gradient-to-r dark:from-slate-900 dark:to-slate-950 dark:text-white">
         <div className="relative z-10 max-w-2xl">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-teal-200 backdrop-blur-md mb-3 border border-white/10">
-            <ShieldCheck className="h-3.5 w-3.5" />
+          <div className="inline-flex items-center gap-2 rounded-full bg-pink-100/80 px-3 py-1 text-xs font-semibold text-rose-800 dark:bg-pink-950/80 dark:text-pink-300 mb-3 border border-pink-200/80 dark:border-pink-800">
+            <ShieldCheck className="h-3.5 w-3.5 text-rose-600 dark:text-rose-400" />
             <span>DPDP Act 2023 End-to-End Encrypted Locker</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             {language === 'hi' ? 'नमस्ते' : 'Hello'}, {activeProfile.name}
           </h1>
-          <p className="mt-1 text-xs sm:text-sm text-teal-100/90 leading-relaxed">
+          <p className="mt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
             {language === 'hi'
               ? 'आपके स्वास्थ्य रुझान और लैब परीक्षण सुरक्षित रूप से ट्रैक किए जा रहे हैं।'
-              : 'Your health trends and longitudinal medical records are synchronized and ready.'}
+              : 'Your health trends, diagnostic reports, and Indian diet guidance are synchronized and secure.'}
           </p>
 
-          <div className="mt-5 flex flex-wrap gap-3">
+          <div className="mt-5 flex flex-wrap gap-2.5">
             <button
               onClick={() => setUploadModalOpen(true)}
-              className="rounded-2xl bg-white px-4 py-2 text-xs font-bold text-teal-900 shadow-md hover:bg-teal-50 active:scale-95 transition-all"
+              className="rounded-2xl bg-rose-600 px-4 py-2 text-xs font-bold text-white shadow-sm shadow-pink-200 hover:bg-rose-700 active:scale-95 transition-all"
             >
               + {t.vault.uploadNew}
             </button>
             <button
               onClick={() => setActiveTab('trends')}
-              className="rounded-2xl bg-teal-700/60 px-4 py-2 text-xs font-semibold text-white hover:bg-teal-700 active:scale-95 transition-all border border-teal-500/30"
+              className="rounded-2xl border border-pink-200 bg-white px-4 py-2 text-xs font-semibold text-rose-700 hover:bg-pink-50 active:scale-95 transition-all shadow-xs dark:border-slate-700 dark:bg-slate-800 dark:text-pink-300"
             >
               {t.nav.trends} →
             </button>
             <button
               onClick={handleExportSummaryPdf}
-              className="rounded-2xl bg-teal-700/60 px-4 py-2 text-xs font-semibold text-white hover:bg-teal-700 active:scale-95 transition-all border border-teal-500/30 flex items-center gap-1.5"
+              className="rounded-2xl border border-pink-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-pink-50 active:scale-95 transition-all shadow-xs dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 flex items-center gap-1.5"
             >
-              <Download className="h-3.5 w-3.5" />
+              <Download className="h-3.5 w-3.5 text-rose-600" />
               Doctor Summary
             </button>
           </div>
@@ -120,10 +120,10 @@ export const DashboardView: React.FC = () => {
             <div
               key={item.code}
               onClick={() => setActiveTab('trends')}
-              className="cursor-pointer rounded-3xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm hover:border-teal-500 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 transition-all"
+              className="cursor-pointer rounded-3xl border border-pink-100/90 bg-white p-4 sm:p-5 shadow-sm hover:border-pink-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 transition-all group"
             >
               <div className="flex items-center justify-between">
-                <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 truncate max-w-[120px]">
+                <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 truncate max-w-[120px] group-hover:text-rose-600 transition-colors">
                   {language === 'hi' ? paramDef?.nameHi : paramDef?.nameEn || item.fallbackName}
                 </span>
                 {colors && (
@@ -146,7 +146,7 @@ export const DashboardView: React.FC = () => {
                 {change !== null ? (
                   <span
                     className={`flex items-center gap-0.5 font-semibold ${
-                      change < 0 ? 'text-emerald-600' : 'text-amber-600'
+                      change < 0 ? 'text-emerald-600' : 'text-rose-600'
                     }`}
                   >
                     {change < 0 ? (
@@ -161,7 +161,7 @@ export const DashboardView: React.FC = () => {
                 )}
 
                 {paramDef && (
-                  <span className="hidden sm:inline">
+                  <span className="hidden sm:inline text-slate-400">
                     Range: {paramDef.minNormal}-{paramDef.maxNormal}
                   </span>
                 )}
@@ -175,10 +175,10 @@ export const DashboardView: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Needs Attention / Clinical Insights */}
         <div className="lg:col-span-2 space-y-4">
-          <div className="rounded-3xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+          <div className="rounded-3xl border border-pink-100/90 bg-white p-5 sm:p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <div className="flex items-center justify-between pb-3 border-b border-pink-100/80 dark:border-slate-800">
               <div className="flex items-center gap-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-rose-50 text-rose-600 dark:bg-rose-950 dark:text-rose-400">
+                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-pink-50 text-rose-600 dark:bg-rose-950 dark:text-rose-400 border border-pink-200">
                   <AlertCircle className="h-4 w-4" />
                 </div>
                 <h3 className="text-sm font-bold text-slate-900 dark:text-white">
@@ -187,13 +187,13 @@ export const DashboardView: React.FC = () => {
               </div>
               <button
                 onClick={() => setActiveTab('trends')}
-                className="text-xs font-semibold text-teal-600 hover:underline dark:text-teal-400"
+                className="text-xs font-semibold text-rose-600 hover:text-rose-700 hover:underline dark:text-pink-400"
               >
                 View Graphs →
               </button>
             </div>
 
-            <div className="mt-3 divide-y divide-slate-100 dark:divide-slate-800">
+            <div className="mt-3 divide-y divide-pink-50 dark:divide-slate-800">
               {needsAttention.map(m => {
                 const paramDef = CLINICAL_PARAMETERS.find(p => p.code === m.parameterCode);
                 const colors = getStatusColor(m.status);
@@ -232,16 +232,16 @@ export const DashboardView: React.FC = () => {
 
           {/* Quick Guidance to Diet Plan */}
           {dietPlan && (
-            <div className="rounded-3xl border border-emerald-200 bg-emerald-50/60 p-5 dark:border-emerald-900/60 dark:bg-emerald-950/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="rounded-3xl border border-pink-200/80 bg-gradient-to-r from-pink-50/70 via-rose-50/40 to-white p-5 dark:border-pink-900/60 dark:bg-pink-950/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xs">
               <div className="flex items-start gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-md shadow-emerald-600/20 shrink-0">
+                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-rose-600 text-white shadow-md shadow-pink-500/25 shrink-0">
                   <Utensils className="h-5 w-5" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-emerald-950 dark:text-emerald-200">
+                  <h4 className="text-sm font-bold text-slate-900 dark:text-white">
                     Personalized Indian Diet Plan Active
                   </h4>
-                  <p className="text-xs text-emerald-800 dark:text-emerald-400 mt-0.5">
+                  <p className="text-xs text-slate-600 dark:text-slate-300 mt-0.5">
                     Calibrated for HbA1c {latestByCode['hba1c']?.value || '7.6'}% and LDL{' '}
                     {latestByCode['chol_ldl']?.value || '138'} mg/dL.
                   </p>
@@ -249,7 +249,7 @@ export const DashboardView: React.FC = () => {
               </div>
               <button
                 onClick={() => setActiveTab('diet')}
-                className="shrink-0 rounded-2xl bg-emerald-600 px-4 py-2 text-xs font-bold text-white hover:bg-emerald-700 shadow-sm"
+                className="shrink-0 rounded-2xl bg-rose-600 px-4 py-2 text-xs font-bold text-white hover:bg-rose-700 shadow-sm shadow-pink-200"
               >
                 View 7-Day Plan →
               </button>
@@ -260,17 +260,17 @@ export const DashboardView: React.FC = () => {
         {/* Sidebar: Upcoming Reminders & Vault Summary */}
         <div className="space-y-4">
           {/* Reminders Card */}
-          <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+          <div className="rounded-3xl border border-pink-100/90 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <div className="flex items-center justify-between pb-3 border-b border-pink-100/80 dark:border-slate-800">
               <div className="flex items-center gap-2">
-                <Bell className="h-4 w-4 text-teal-600" />
+                <Bell className="h-4 w-4 text-rose-600" />
                 <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
                   Condition Reminders
                 </h3>
               </div>
               <button
                 onClick={() => setActiveTab('reminders')}
-                className="text-xs font-semibold text-teal-600 hover:underline dark:text-teal-400"
+                className="text-xs font-semibold text-rose-600 hover:underline dark:text-pink-400"
               >
                 All →
               </button>
@@ -280,7 +280,7 @@ export const DashboardView: React.FC = () => {
               {reminders.slice(0, 3).map(r => (
                 <div
                   key={r.id}
-                  className="rounded-2xl border border-slate-100 bg-slate-50/70 p-3 dark:border-slate-800 dark:bg-slate-850"
+                  className="rounded-2xl border border-pink-50 bg-[#FDF8F9] p-3 dark:border-slate-800 dark:bg-slate-850"
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div className="text-xs font-semibold text-slate-900 dark:text-white">
@@ -288,7 +288,7 @@ export const DashboardView: React.FC = () => {
                     </div>
                   </div>
                   <div className="mt-2 flex items-center justify-between text-[11px] text-slate-500">
-                    <span className="flex items-center gap-1 text-teal-700 dark:text-teal-300 font-medium">
+                    <span className="flex items-center gap-1 text-rose-700 dark:text-pink-300 font-medium">
                       <Calendar className="h-3 w-3" />
                       Due: {r.nextDueDate}
                     </span>
@@ -300,17 +300,17 @@ export const DashboardView: React.FC = () => {
           </div>
 
           {/* Vault Summary Card */}
-          <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+          <div className="rounded-3xl border border-pink-100/90 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <div className="flex items-center justify-between pb-3 border-b border-pink-100/80 dark:border-slate-800">
               <div className="flex items-center gap-2">
-                <FileText className="h-4 w-4 text-teal-600" />
+                <FileText className="h-4 w-4 text-rose-600" />
                 <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
                   Vault Storage
                 </h3>
               </div>
               <button
                 onClick={() => setActiveTab('vault')}
-                className="text-xs font-semibold text-teal-600 hover:underline dark:text-teal-400"
+                className="text-xs font-semibold text-rose-600 hover:underline dark:text-pink-400"
               >
                 Open Vault →
               </button>
@@ -327,7 +327,7 @@ export const DashboardView: React.FC = () => {
               </div>
               <div className="flex justify-between text-slate-600 dark:text-slate-400">
                 <span>Storage Security:</span>
-                <span className="text-emerald-600 font-semibold">AES-256 Encrypted</span>
+                <span className="text-rose-700 dark:text-pink-400 font-semibold">AES-256 Encrypted</span>
               </div>
             </div>
           </div>
